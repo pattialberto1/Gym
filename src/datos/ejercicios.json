@@ -1,0 +1,1225 @@
+[
+  {
+    "id": "sentadilla-profunda",
+    "nombre": "Sentadilla profunda",
+    "musculoPrincipal": "gluteos",
+    "musculosSecundarios": [
+      "cuadriceps",
+      "aductores"
+    ],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "fuerte",
+      "resumen": "Bajar hasta el fondo hizo crecer glúteos y aductores el triple que la media sentadilla, y el glúteo creció tanto como con hip thrust.",
+      "referencias": [
+        "Kubo K, Ikebukuro T, Yata H. Effects of squat training with different depths on lower limb muscle volumes. Eur J Appl Physiol. 2019;119(9):1933-1942.",
+        "Plotkin DL, et al. Hip thrust and back squat training elicit similar gluteus muscle hypertrophy and transfer similarly to the deadlift. Front Physiol. 2023;14:1279170."
+      ]
+    },
+    "sustitutos": [
+      "hip-thrust",
+      "prensa-piernas",
+      "sentadilla-goblet"
+    ],
+    "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "sentadilla",
+      "clipError": "sentadilla-valgo",
+      "huesosError": [
+        "mixamorigLeftLeg",
+        "mixamorigRightLeg",
+        "mixamorigLeftUpLeg",
+        "mixamorigRightUpLeg"
+      ],
+      "descripcionError": "Rodillas que se van hacia dentro al bajar y al subir",
+      "puntosClave": [
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 0,
+          "duracion": 1.4,
+          "zoom": 1.5,
+          "angulo": {
+            "azimut": 30,
+            "elevacion": 25
+          },
+          "indicacion": "Pies a la anchura de los hombros, puntas un poco hacia fuera"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 1.5,
+          "duracion": 0.9,
+          "zoom": 1.7,
+          "angulo": {
+            "azimut": 10,
+            "elevacion": 15
+          },
+          "indicacion": "Rodillas en la línea de la punta del pie"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 2.6,
+          "duracion": 1.0,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 150,
+            "elevacion": 25
+          },
+          "indicacion": "Espalda neutra y pecho arriba al subir"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 1.8,
+          "duracion": 0.8,
+          "zoom": 2.3,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 5
+          },
+          "indicacion": "Baja hasta que la cadera pase la rodilla"
+        },
+        {
+          "hueso": "mixamorigRightFoot",
+          "tiempoInicio": 2.7,
+          "duracion": 1.0,
+          "zoom": 1.5,
+          "angulo": {
+            "azimut": -70,
+            "elevacion": 10
+          },
+          "indicacion": "Empuja con todo el pie, talones pegados al suelo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "hip-thrust",
+    "nombre": "Hip thrust",
+    "musculoPrincipal": "gluteos",
+    "musculosSecundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Creció el glúteo de forma parecida a la sentadilla, aunque los muslos crecieron menos.",
+      "referencias": [
+        "Plotkin DL, et al. Hip thrust and back squat training elicit similar gluteus muscle hypertrophy and transfer similarly to the deadlift. Front Physiol. 2023;14:1279170."
+      ]
+    },
+    "sustitutos": [
+      "sentadilla-profunda",
+      "prensa-piernas"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigSpine",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Apoya la parte baja de los omóplatos en el banco"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Arriba, cadera extendida y barbilla recogida; aprieta un segundo"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Espinillas verticales en la posición alta"
+        }
+      ]
+    }
+  },
+  {
+    "id": "prensa-piernas",
+    "nombre": "Prensa de piernas",
+    "musculoPrincipal": "cuadriceps",
+    "musculosSecundarios": [
+      "gluteos",
+      "aductores"
+    ],
+    "equipo": "maquina",
+    "saltoPesoKg": 5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Buena alternativa con recorrido profundo; la evidencia directa frente a otras opciones es escasa.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "sentadilla-profunda",
+      "sentadilla-goblet"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Baja todo lo que puedas sin que la pelvis se despegue del respaldo"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Rodillas siguiendo la dirección de los pies"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sentadilla-goblet",
+    "nombre": "Sentadilla goblet",
+    "musculoPrincipal": "cuadriceps",
+    "musculosSecundarios": [
+      "gluteos",
+      "aductores"
+    ],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Permite bajar profundo con poca carga; útil si la barra está ocupada.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "sentadilla-profunda",
+      "prensa-piernas"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 10
+          },
+          "indicacion": "Mancuerna pegada al pecho, codos hacia abajo"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 5
+          },
+          "indicacion": "Baja entre las piernas, lo más hondo que controles"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curl-femoral-sentado",
+    "nombre": "Curl femoral sentado",
+    "musculoPrincipal": "isquiotibiales",
+    "musculosSecundarios": [],
+    "equipo": "maquina",
+    "saltoPesoKg": 5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "fuerte",
+      "resumen": "Sentado, con el músculo estirado, los isquios crecieron más que con el curl tumbado (+14 % frente a +9 %).",
+      "referencias": [
+        "Maeo S, Huang M, Wu Y, Sakurai H, Kusagawa Y, Sugiyama T, Kanehisa H, Isaka T. Greater Hamstrings Muscle Hypertrophy but Similar Damage Protection after Training at Long versus Short Muscle Lengths. Med Sci Sports Exerc. 2021;53(4):825-837."
+      ]
+    },
+    "sustitutos": [
+      "curl-femoral-tumbado",
+      "peso-muerto-rumano"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Inclínate un poco hacia delante para estirar más los isquios"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Rodilla alineada con el eje de la máquina; sube despacio"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curl-femoral-tumbado",
+    "nombre": "Curl femoral tumbado",
+    "musculoPrincipal": "isquiotibiales",
+    "musculosSecundarios": [
+      "gemelos"
+    ],
+    "equipo": "maquina",
+    "saltoPesoKg": 5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Funciona, pero en el mismo estudio creció menos que la versión sentada.",
+      "referencias": [
+        "Maeo S, et al. Greater Hamstrings Muscle Hypertrophy but Similar Damage Protection after Training at Long versus Short Muscle Lengths. Med Sci Sports Exerc. 2021;53(4):825-837."
+      ]
+    },
+    "sustitutos": [
+      "curl-femoral-sentado",
+      "peso-muerto-rumano"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Cadera pegada al banco, sin levantarla al subir"
+        }
+      ]
+    }
+  },
+  {
+    "id": "peso-muerto-rumano",
+    "nombre": "Peso muerto rumano",
+    "musculoPrincipal": "isquiotibiales",
+    "musculosSecundarios": [
+      "gluteos",
+      "espalda"
+    ],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Carga los isquios en estiramiento; falta comparación directa de crecimiento.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "curl-femoral-sentado"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Lleva la cadera hacia atrás, rodillas apenas flexionadas"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Espalda neutra; baja hasta notar el estiramiento"
+        }
+      ]
+    }
+  },
+  {
+    "id": "extension-rodilla",
+    "nombre": "Extensión de rodilla",
+    "musculoPrincipal": "cuadriceps",
+    "musculosSecundarios": [],
+    "equipo": "maquina",
+    "saltoPesoKg": 5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Hizo crecer el recto femoral, que la sentadilla apenas trabaja; la parte inicial del recorrido (rodilla doblada) fue la más eficaz.",
+      "referencias": [
+        "Zabaleta-Korta A, Fernández-Peña E, Torres-Unda J, Garbisu-Hualde A, Santos-Concejero J. The role of exercise selection in regional muscle hypertrophy: A randomized controlled trial. J Sports Sci. 2021.",
+        "Pedrosa GF, Lima FV, Schoenfeld BJ, et al. Partial range of motion training elicits favorable improvements in muscular adaptations when carried out at long muscle lengths. Eur J Sport Sci. 2022."
+      ]
+    },
+    "sustitutos": [
+      "sentadilla-sissy"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Empieza con la rodilla bien doblada: esa parte del recorrido es la que más cuenta"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Respaldo algo reclinado para estirar el recto femoral"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sentadilla-sissy",
+    "nombre": "Sentadilla sissy",
+    "musculoPrincipal": "cuadriceps",
+    "musculosSecundarios": [],
+    "equipo": "peso-corporal",
+    "saltoPesoKg": 2.5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Estira el recto femoral con rodilla y cadera; sin estudios de crecimiento directos.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "extension-rodilla"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Rodillas hacia delante y cadera extendida; agárrate a algo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "elevacion-talones-pausa",
+    "nombre": "Elevación de talones con pausa abajo",
+    "musculoPrincipal": "gemelos",
+    "musculosSecundarios": [],
+    "equipo": "maquina",
+    "saltoPesoKg": 5,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Trabajar la parte estirada del recorrido hizo crecer el gemelo más que el recorrido completo (+15 % frente a +7 %).",
+      "referencias": [
+        "Kassiano W, Costa B, Kunevaliki G, et al. Greater Gastrocnemius Muscle Hypertrophy After Partial Range of Motion Training Performed at Long Muscle Lengths. J Strength Cond Res. 2023;37(9):1746-1753."
+      ]
+    },
+    "sustitutos": [
+      "elevacion-talones-escalon"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 1.5,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 5
+          },
+          "indicacion": "Baja el talón al máximo y para dos segundos abajo"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 1.5,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 5
+          },
+          "indicacion": "Rodilla estirada para cargar el gemelo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "elevacion-talones-escalon",
+    "nombre": "Elevación de talones en escalón",
+    "musculoPrincipal": "gemelos",
+    "musculosSecundarios": [],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "inferior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Misma idea que en máquina: pausa con el talón abajo.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "elevacion-talones-pausa"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 1.5,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 5
+          },
+          "indicacion": "Punta del pie en el escalón; baja el talón y pausa"
+        }
+      ]
+    }
+  },
+  {
+    "id": "extension-triceps-overhead",
+    "nombre": "Extensión de tríceps por encima de la cabeza",
+    "musculoPrincipal": "triceps",
+    "musculosSecundarios": [],
+    "equipo": "polea",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "fuerte",
+      "resumen": "Con el brazo por encima de la cabeza el tríceps creció 1,4 veces más que con el pushdown, sobre todo la cabeza larga.",
+      "referencias": [
+        "Maeo S, Wu Y, Huang M, et al. Triceps brachii hypertrophy is substantially greater after elbow extension training performed in the overhead versus neutral arm position. Eur J Sport Sci. 2023;23(7):1240-1250 (publicado online en 2022)."
+      ]
+    },
+    "sustitutos": [
+      "extension-triceps-overhead-mancuerna",
+      "press-frances",
+      "pushdown-triceps"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Brazos junto a la cabeza; los codos no se abren"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Baja hasta notar el estiramiento detrás del brazo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "extension-triceps-overhead-mancuerna",
+    "nombre": "Extensión de tríceps overhead con mancuerna",
+    "musculoPrincipal": "triceps",
+    "musculosSecundarios": [],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Misma posición del brazo que la versión en polea del estudio; cambia el perfil de resistencia.",
+      "referencias": [
+        "Maeo S, et al. Triceps brachii hypertrophy is substantially greater after elbow extension training performed in the overhead versus neutral arm position. Eur J Sport Sci. 2023;23(7):1240-1250."
+      ]
+    },
+    "sustitutos": [
+      "extension-triceps-overhead",
+      "press-frances"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Baja la mancuerna detrás de la cabeza, codos hacia el techo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "press-frances",
+    "nombre": "Press francés",
+    "musculoPrincipal": "triceps",
+    "musculosSecundarios": [],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Brazo parcialmente flexionado: estira la cabeza larga más que el pushdown.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "extension-triceps-overhead",
+      "pushdown-triceps"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Baja la barra detrás de la frente, codos quietos"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pushdown-triceps",
+    "nombre": "Pushdown de tríceps en polea",
+    "musculoPrincipal": "triceps",
+    "musculosSecundarios": [],
+    "equipo": "polea",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Funciona, pero creció menos que la extensión por encima de la cabeza.",
+      "referencias": [
+        "Maeo S, et al. Triceps brachii hypertrophy is substantially greater after elbow extension training performed in the overhead versus neutral arm position. Eur J Sport Sci. 2023;23(7):1240-1250."
+      ]
+    },
+    "sustitutos": [
+      "extension-triceps-overhead",
+      "press-frances"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Codos pegados al cuerpo; extiende del todo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curl-predicador",
+    "nombre": "Curl predicador",
+    "musculoPrincipal": "biceps",
+    "musculosSecundarios": [],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Entrenar la parte baja del recorrido (brazo estirado) dio más crecimiento que la parte alta.",
+      "referencias": [
+        "Pedrosa GF, Simões MG, Figueiredo MOC, Lacerda LT, Schoenfeld BJ, Lima FV, Chagas MH, Diniz RCR. Training in the Initial Range of Motion Promotes Greater Muscle Adaptations Than at Final in the Arm Curl. Sports (Basel). 2023;11(2):39.",
+        "Zabaleta-Korta A, et al. Regional Hypertrophy: The Effect of Exercises at Long and Short Muscle Lengths in Recreationally Trained Women. J Hum Kinet. 2023."
+      ]
+    },
+    "sustitutos": [
+      "curl-inclinado",
+      "curl-barra"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Baja hasta casi estirar el codo: ahí está el estímulo"
+        },
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Axila apoyada en el borde del banco"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curl-inclinado",
+    "nombre": "Curl inclinado con mancuernas",
+    "musculoPrincipal": "biceps",
+    "musculosSecundarios": [],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Estira el bíceps con el hombro, pero en un estudio creció menos que el predicador; por eso baja de nivel.",
+      "referencias": [
+        "Zabaleta-Korta A, et al. Regional Hypertrophy: The Effect of Exercises at Long and Short Muscle Lengths in Recreationally Trained Women. J Hum Kinet. 2023."
+      ]
+    },
+    "sustitutos": [
+      "curl-predicador",
+      "curl-barra"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Brazos colgando por detrás del cuerpo, sin adelantar los codos"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curl-barra",
+    "nombre": "Curl con barra",
+    "musculoPrincipal": "biceps",
+    "musculosSecundarios": [],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Clásico; recorrido completo sin balanceo.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "curl-predicador",
+      "curl-inclinado"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Codos quietos; baja del todo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "press-banca",
+    "nombre": "Press de banca",
+    "musculoPrincipal": "pecho",
+    "musculosSecundarios": [
+      "triceps",
+      "deltoides"
+    ],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Banca y flexiones dieron un crecimiento de pecho similar con cargas parecidas.",
+      "referencias": [
+        "Kikuchi N, Nakazato K. Low-load bench press and push-up induce similar muscle hypertrophy and strength gain. J Exerc Sci Fit. 2017;15(1):37-42."
+      ]
+    },
+    "sustitutos": [
+      "flexiones",
+      "press-inclinado-mancuerna",
+      "aperturas-mancuerna"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Omóplatos juntos y pies firmes en el suelo"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Toca el pecho a la altura del esternón, antebrazos verticales"
+        }
+      ]
+    }
+  },
+  {
+    "id": "flexiones",
+    "nombre": "Flexiones",
+    "musculoPrincipal": "pecho",
+    "musculosSecundarios": [
+      "triceps",
+      "deltoides"
+    ],
+    "equipo": "peso-corporal",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "moderada",
+      "resumen": "Tan eficaces como la banca con carga equivalente; añade lastre cuando sean fáciles.",
+      "referencias": [
+        "Kikuchi N, Nakazato K. Low-load bench press and push-up induce similar muscle hypertrophy and strength gain. J Exerc Sci Fit. 2017;15(1):37-42."
+      ]
+    },
+    "sustitutos": [
+      "press-banca",
+      "press-inclinado-mancuerna"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Cuerpo en bloque: la cadera no cae"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Baja hasta casi tocar el suelo con el pecho"
+        }
+      ]
+    }
+  },
+  {
+    "id": "press-inclinado-mancuerna",
+    "nombre": "Press inclinado con mancuernas",
+    "musculoPrincipal": "pecho",
+    "musculosSecundarios": [
+      "deltoides",
+      "triceps"
+    ],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Más recorrido abajo que con barra; sin comparación directa de crecimiento.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "press-banca",
+      "flexiones"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Baja las mancuernas hasta notar el estiramiento del pecho"
+        }
+      ]
+    }
+  },
+  {
+    "id": "aperturas-mancuerna",
+    "nombre": "Aperturas con mancuernas",
+    "musculoPrincipal": "pecho",
+    "musculosSecundarios": [
+      "deltoides"
+    ],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 2,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Carga el pecho estirado; no hay estudios de crecimiento que la comparen con la banca.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "press-inclinado-mancuerna",
+      "flexiones"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 30
+          },
+          "indicacion": "Codos algo doblados y fijos; abre hasta notar el estiramiento"
+        }
+      ]
+    }
+  },
+  {
+    "id": "jalon-pecho",
+    "nombre": "Jalón al pecho",
+    "musculoPrincipal": "espalda",
+    "musculosSecundarios": [
+      "biceps"
+    ],
+    "equipo": "polea",
+    "saltoPesoKg": 5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Evidencia directa escasa; deja que los brazos suban del todo arriba.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "dominadas",
+      "remo-polea"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Arriba, brazos estirados y hombros que suben"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Tira con los codos hacia los costados, pecho alto"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dominadas",
+    "nombre": "Dominadas",
+    "musculoPrincipal": "espalda",
+    "musculosSecundarios": [
+      "biceps"
+    ],
+    "equipo": "peso-corporal",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Evidencia directa escasa; cuelga del todo abajo en cada rep.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "jalon-pecho",
+      "remo-polea"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Empieza colgado con los brazos estirados"
+        }
+      ]
+    }
+  },
+  {
+    "id": "remo-polea",
+    "nombre": "Remo en polea baja",
+    "musculoPrincipal": "espalda",
+    "musculosSecundarios": [
+      "biceps",
+      "deltoides"
+    ],
+    "equipo": "polea",
+    "saltoPesoKg": 5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Evidencia directa escasa; deja que los hombros se adelanten al estirar.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "remo-barra",
+      "jalon-pecho"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Tronco quieto; tira con los codos pegados"
+        }
+      ]
+    }
+  },
+  {
+    "id": "remo-barra",
+    "nombre": "Remo con barra",
+    "musculoPrincipal": "espalda",
+    "musculosSecundarios": [
+      "biceps",
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Evidencia directa escasa.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "remo-polea",
+      "jalon-pecho"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Espalda neutra e inclinada; la barra va al ombligo"
+        }
+      ]
+    }
+  },
+  {
+    "id": "elevacion-lateral-polea",
+    "nombre": "Elevación lateral en polea",
+    "musculoPrincipal": "deltoides",
+    "musculosSecundarios": [],
+    "equipo": "polea",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Carga el deltoides abajo, pero un estudio reciente no encontró diferencia frente a la mancuerna.",
+      "referencias": [
+        "Larsen S, Wolf M, Schoenfeld BJ, et al. Dumbbell versus cable lateral raises for lateral deltoid hypertrophy: an experimental study. Front Physiol. 2025;16:1611468."
+      ]
+    },
+    "sustitutos": [
+      "elevacion-lateral-mancuerna",
+      "press-militar"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Polea por delante o por detrás del cuerpo; sube hasta la altura del hombro"
+        }
+      ]
+    }
+  },
+  {
+    "id": "elevacion-lateral-mancuerna",
+    "nombre": "Elevación lateral con mancuernas",
+    "musculoPrincipal": "deltoides",
+    "musculosSecundarios": [],
+    "equipo": "mancuerna",
+    "saltoPesoKg": 1,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Creció igual que la versión en polea en un estudio con personas entrenadas.",
+      "referencias": [
+        "Larsen S, Wolf M, Schoenfeld BJ, et al. Dumbbell versus cable lateral raises for lateral deltoid hypertrophy: an experimental study. Front Physiol. 2025;16:1611468."
+      ]
+    },
+    "sustitutos": [
+      "elevacion-lateral-polea",
+      "press-militar"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 0,
+            "elevacion": 10
+          },
+          "indicacion": "Sube con el codo por delante de la mano, sin impulso"
+        }
+      ]
+    }
+  },
+  {
+    "id": "press-militar",
+    "nombre": "Press militar",
+    "musculoPrincipal": "deltoides",
+    "musculosSecundarios": [
+      "triceps"
+    ],
+    "equipo": "barra",
+    "saltoPesoKg": 2.5,
+    "tipo": "superior",
+    "evidencia": {
+      "nivel": "principio",
+      "resumen": "Trabaja sobre todo el deltoides anterior; poca evidencia para el lateral.",
+      "referencias": []
+    },
+    "sustitutos": [
+      "elevacion-lateral-polea"
+    ],
+    "tecnica": {
+      "puntosClave": [
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Glúteos apretados, sin arquear la zona lumbar"
+        }
+      ]
+    }
+  }
+]
