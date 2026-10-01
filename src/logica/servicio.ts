@@ -1,5 +1,5 @@
 // Orquesta el entreno: une el repositorio con la lógica pura de plan y progresión.
-import { obtenerEjercicio, PLANTILLAS } from "../datos/biblioteca";
+import { obtenerEjercicio, PLANTILLAS, PLANTILLAS_ANTIGUAS } from "../datos/biblioteca";
 import * as repo from "../datos/repositorio";
 import type { Dificultad, EjercicioDia, PlanEjercicio, Rutina, Sesion } from "../datos/tipos";
 import {
@@ -16,13 +16,29 @@ const AJ_RUTINA = "rutinaActiva";
 const AJ_SIGUIENTE = "siguienteDia";
 const AJ_DESCARGA = "decisionDescarga";
 
-/** Primera vez: crea las plantillas y activa la primera. */
-export async function asegurarDatosIniciales(): Promise<void> {
-  const rutinas = await repo.listarRutinas();
-  if (rutinas.length > 0) return;
-  const copias = PLANTILLAS.map((p) => ({ ...structuredClone(p), id: repo.nuevoId() }));
-  for (const r of copias) await repo.guardarRutina(r);
-  await repo.guardarAjuste(AJ_RUTINA, copias[0].id);
+const AJ_VERSION_PLANTILLAS = "versionPlantillas";
+const VERSION_PLANTILLAS = 2;
+
+let preparando: Promise<void> | undefined;
+
+/**
+ * Primera vez: crea la rutina de cuerpo completo y la activa.
+ * Si venía de la versión anterior, sustituye las plantillas antiguas (sus series se conservan).
+ */
+export function asegurarDatosIniciales(): Promise<void> {
+  preparando ??= (async () => {
+    const version = await repo.leerAjuste<number>(AJ_VERSION_PLANTILLAS, 1);
+    const rutinas = await repo.listarRutinas();
+    if (rutinas.length > 0 && version >= VERSION_PLANTILLAS) return;
+    for (const r of rutinas) if (PLANTILLAS_ANTIGUAS.includes(r.nombre)) await repo.borrarRutina(r.id);
+    const nueva = { ...structuredClone(PLANTILLAS[0]), id: repo.nuevoId() };
+    await repo.guardarRutina(nueva);
+    await repo.guardarAjuste(AJ_RUTINA, nueva.id);
+    await repo.guardarAjuste(AJ_VERSION_PLANTILLAS, VERSION_PLANTILLAS);
+  })().finally(() => {
+    preparando = undefined;
+  });
+  return preparando;
 }
 
 export async function rutinaActiva(): Promise<Rutina | undefined> {

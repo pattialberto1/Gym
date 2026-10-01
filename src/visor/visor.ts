@@ -35,10 +35,15 @@ export function hayWebGL(): boolean {
   }
 }
 
-const VISTA_GENERAL = {
-  posicion: new THREE.Vector3(1.9, 1.35, 2.7),
-  objetivo: new THREE.Vector3(0, 0.75, 0),
-};
+const VISTA_POR_DEFECTO = { objetivo: [0, 0.75, 0] as [number, number, number], distancia: 3.3, azimut: 35, elevacion: 12 };
+
+/** Ritmo de la guía: la animación va lenta mientras se explica un punto y algo más rápida entre puntos. */
+const VELOCIDAD_PUNTO = 0.45;
+const VELOCIDAD_VIAJE = 1.4;
+/** Tiempo mínimo (s reales) que se queda la cámara en cada punto clave. */
+const MIN_PUNTO = 4.5;
+/** Suavidad de la cámara: más bajo = más lenta. */
+const RAPIDEZ_CAMARA = 1.6;
 
 const COLOR_ERROR = new THREE.Color(0xe5484d);
 const COLOR_BIEN = new THREE.Color(0x30a46c);
@@ -67,8 +72,8 @@ export class VisorTecnica {
   private fase: Fase = "esperando";
   private inicioMostrar = 0;
   private tiempoPrevio = 0;
-  private destinoPos = VISTA_GENERAL.posicion.clone();
-  private destinoObj = VISTA_GENERAL.objetivo.clone();
+  private destinoPos = new THREE.Vector3();
+  private destinoObj = new THREE.Vector3();
   private moviendoPorCodigo = false;
   private comparacion: Comparacion = "ninguna";
 
@@ -82,9 +87,7 @@ export class VisorTecnica {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     contenedor.appendChild(this.renderer.domElement);
 
-    this.camara.position.copy(VISTA_GENERAL.posicion);
     this.controles = new OrbitControls(this.camara, this.renderer.domElement);
-    this.controles.target.copy(VISTA_GENERAL.objetivo);
     this.controles.enableDamping = true;
     this.controles.enablePan = false;
     this.controles.minDistance = 0.8;
@@ -95,6 +98,11 @@ export class VisorTecnica {
     this.observador = new ResizeObserver(() => this.ajustarTamano());
     this.observador.observe(contenedor);
     this.ajustarTamano();
+    const general = this.vistaGeneral();
+    this.camara.position.copy(general.pos);
+    this.controles.target.copy(general.obj);
+    this.destinoPos.copy(general.pos);
+    this.destinoObj.copy(general.obj);
   }
 
   /** Carga el modelo. Rechaza si no existe o no tiene el clip. */
@@ -118,6 +126,11 @@ export class VisorTecnica {
       }
     });
     this.escena.add(this.raiz);
+    // Solo se ven los objetos del ejercicio (barra, banco, polea…).
+    const visibles = new Set(this.ficha.objetos ?? []);
+    this.raiz.traverse((o) => {
+      if (o.name.startsWith("obj-") && o.name !== "obj-respaldo") o.visible = visibles.has(o.name);
+    });
 
     this.mixer = new THREE.AnimationMixer(this.raiz);
     this.accionCorrecta = this.mixer.clipAction(clipBien);
@@ -151,12 +164,35 @@ export class VisorTecnica {
     this.op.alCambiarModo("guiada");
     this.op.alIndicar(null, null);
     this.tiempoPrevio = this.tiempoBucle();
+    this.velocidad(VELOCIDAD_VIAJE);
   }
 
   verVistaGeneral(): void {
-    this.destinoPos.copy(VISTA_GENERAL.posicion);
-    this.destinoObj.copy(VISTA_GENERAL.objetivo);
+    const { pos, obj } = this.vistaGeneral();
+    this.destinoPos.copy(pos);
+    this.destinoObj.copy(obj);
     if (this.op.reducirMovimiento) this.saltarADestino();
+  }
+
+  private velocidad(v: number): void {
+    if (this.accionCorrecta) this.accionCorrecta.timeScale = v;
+    if (this.accionError) this.accionError.timeScale = v;
+  }
+
+  private orbita(objetivo: THREE.Vector3, distancia: number, azimut: number, elevacion: number) {
+    // En vertical el campo horizontal es estrecho: aleja la cámara en proporción.
+    const d = distancia * Math.max(1, 0.9 / this.camara.aspect);
+    const az = THREE.MathUtils.degToRad(azimut);
+    const el = THREE.MathUtils.degToRad(elevacion);
+    const pos = new THREE.Vector3(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az))
+      .multiplyScalar(d)
+      .add(objetivo);
+    return { pos, obj: objetivo, d };
+  }
+
+  private vistaGeneral(): { pos: THREE.Vector3; obj: THREE.Vector3 } {
+    const v = this.ficha.vista ?? VISTA_POR_DEFECTO;
+    return this.orbita(new THREE.Vector3(...v.objetivo), v.distancia, v.azimut, v.elevacion);
   }
 
   setComparacion(c: Comparacion): void {
@@ -219,6 +255,7 @@ export class VisorTecnica {
     if (this.moviendoPorCodigo) return;
     if (this.modo !== "libre") {
       this.modo = "libre";
+      this.velocidad(1);
       this.op.alCambiarModo("libre");
       this.op.alIndicar(null, null);
     }
@@ -244,25 +281,15 @@ export class VisorTecnica {
     const h = this.raiz?.getObjectByName(nombre);
     const v = new THREE.Vector3();
     if (h) h.getWorldPosition(v);
-    else v.copy(VISTA_GENERAL.objetivo);
+    else v.set(...(this.ficha.vista ?? VISTA_POR_DEFECTO).objetivo);
     return v;
   }
 
   private poseDe(p: PuntoClave): { pos: THREE.Vector3; obj: THREE.Vector3 } {
-    // En vertical el campo horizontal es estrecho: aleja la cámara en proporción.
-    const distancia = p.zoom * Math.max(1, 0.9 / this.camara.aspect);
+    const hueso = this.posicionHueso(p.hueso);
+    const { d } = this.orbita(hueso, p.zoom, 0, 0);
     // Sube un poco el punto de mira para que la indicación superpuesta no tape el hueso.
-    const obj = this.posicionHueso(p.hueso).add(new THREE.Vector3(0, distancia * 0.1, 0));
-    const az = THREE.MathUtils.degToRad(p.angulo.azimut);
-    const el = THREE.MathUtils.degToRad(p.angulo.elevacion);
-    const pos = new THREE.Vector3(
-      Math.cos(el) * Math.sin(az),
-      Math.sin(el),
-      Math.cos(el) * Math.cos(az),
-    )
-      .multiplyScalar(distancia)
-      .add(obj);
-    return { pos, obj };
+    return this.orbita(hueso.add(new THREE.Vector3(0, d * 0.1, 0)), p.zoom, p.angulo.azimut, p.angulo.elevacion);
   }
 
   /** ¿El bucle ha pasado por el instante `t` desde el fotograma anterior? */
@@ -299,6 +326,7 @@ export class VisorTecnica {
       if (this.cruzo(p.tiempoInicio, previo, ahora) || (this.indice === 0 && p.tiempoInicio === 0 && previo === 0)) {
         this.fase = "mostrando";
         this.inicioMostrar = this.reloj.elapsedTime;
+        this.velocidad(VELOCIDAD_PUNTO);
         if (this.op.reducirMovimiento) this.saltarADestino();
       }
     } else if (this.fase === "mostrando") {
@@ -307,14 +335,16 @@ export class VisorTecnica {
         this.destinoPos.copy(pos);
         this.destinoObj.copy(obj);
       }
-      if (this.reloj.elapsedTime - this.inicioMostrar >= Math.max(1, p.duracion)) {
+      if (this.reloj.elapsedTime - this.inicioMostrar >= Math.max(MIN_PUNTO, p.duracion)) {
         this.indice++;
         if (this.indice >= puntos.length) {
           this.fase = "volviendo";
           this.op.alIndicar(null, null);
+          this.velocidad(1);
           this.verVistaGeneral();
         } else {
           this.fase = "esperando";
+          this.velocidad(VELOCIDAD_VIAJE);
         }
       }
     }
@@ -331,7 +361,7 @@ export class VisorTecnica {
       // Sin interpolación: solo salta cuando cambia de punto (ver actualizarGuia).
       return;
     }
-    const k = 1 - Math.exp(-dt * 3.2);
+    const k = 1 - Math.exp(-dt * RAPIDEZ_CAMARA);
     this.camara.position.lerp(this.destinoPos, k);
     this.controles.target.lerp(this.destinoObj, k);
   }

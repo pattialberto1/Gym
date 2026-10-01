@@ -25,7 +25,7 @@
     ],
     "tecnica": {
       "modelo": "modelos/maniqui.glb",
-      "clipCorrecto": "sentadilla",
+      "clipCorrecto": "sentadilla-profunda",
       "clipError": "sentadilla-valgo",
       "huesosError": [
         "mixamorigLeftLeg",
@@ -34,11 +34,24 @@
         "mixamorigRightUpLeg"
       ],
       "descripcionError": "Rodillas que se van hacia dentro al bajar y al subir",
+      "objetos": [
+        "obj-barra"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          0
+        ],
+        "distancia": 3.3,
+        "azimut": 35,
+        "elevacion": 12
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigLeftFoot",
-          "tiempoInicio": 0,
-          "duracion": 1.4,
+          "tiempoInicio": 0.2,
+          "duracion": 2,
           "zoom": 1.5,
           "angulo": {
             "azimut": 30,
@@ -48,8 +61,8 @@
         },
         {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 1.5,
-          "duracion": 0.9,
+          "tiempoInicio": 1.4,
+          "duracion": 2,
           "zoom": 1.7,
           "angulo": {
             "azimut": 10,
@@ -58,20 +71,9 @@
           "indicacion": "Rodillas en la línea de la punta del pie"
         },
         {
-          "hueso": "mixamorigSpine1",
-          "tiempoInicio": 2.6,
-          "duracion": 1.0,
-          "zoom": 2.2,
-          "angulo": {
-            "azimut": 150,
-            "elevacion": 25
-          },
-          "indicacion": "Espalda neutra y pecho arriba al subir"
-        },
-        {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 1.8,
-          "duracion": 0.8,
+          "tiempoInicio": 2.7,
+          "duracion": 2,
           "zoom": 2.3,
           "angulo": {
             "azimut": 70,
@@ -80,9 +82,20 @@
           "indicacion": "Baja hasta que la cadera pase la rodilla"
         },
         {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 150,
+            "elevacion": 25
+          },
+          "indicacion": "Espalda neutra y pecho arriba al subir"
+        },
+        {
           "hueso": "mixamorigRightFoot",
-          "tiempoInicio": 2.7,
-          "duracion": 1.0,
+          "tiempoInicio": 0.2,
+          "duracion": 2,
           "zoom": 1.5,
           "angulo": {
             "azimut": -70,
@@ -115,39 +128,66 @@
       "prensa-piernas"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "hip-thrust",
+      "objetos": [
+        "obj-barra",
+        "obj-banco"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.35,
+          -0.05
+        ],
+        "distancia": 3,
+        "azimut": 70,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
-          "hueso": "mixamorigSpine",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 90,
-            "elevacion": 10
+            "elevacion": 15
           },
           "indicacion": "Apoya la parte baja de los omóplatos en el banco"
         },
         {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
+            "azimut": 80,
             "elevacion": 10
           },
-          "indicacion": "Arriba, cadera extendida y barbilla recogida; aprieta un segundo"
+          "indicacion": "Baja la cadera sin mover los hombros del banco"
         },
         {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 0,
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 10
+          },
+          "indicacion": "Arriba, espinillas verticales"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
-            "elevacion": 10
+            "azimut": 100,
+            "elevacion": 20
           },
-          "indicacion": "Espinillas verticales en la posición alta"
+          "indicacion": "Cadera extendida y barbilla recogida; aprieta un segundo"
         }
       ]
     }
@@ -173,10 +213,48 @@
       "sentadilla-goblet"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "prensa-piernas",
+      "objetos": [
+        "obj-asiento-prensa",
+        "obj-plataforma"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.6,
+          0.25
+        ],
+        "distancia": 3,
+        "azimut": 70,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 20
+          },
+          "indicacion": "Pies en el centro de la plataforma, a la anchura de la cadera"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 1.4,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 20,
+            "elevacion": 15
+          },
+          "indicacion": "Rodillas siguiendo la dirección de los pies"
+        },
+        {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
@@ -187,14 +265,14 @@
         },
         {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 0,
+          "tiempoInicio": 3.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 0,
-            "elevacion": 10
+            "azimut": 70,
+            "elevacion": 15
           },
-          "indicacion": "Rodillas siguiendo la dirección de los pies"
+          "indicacion": "Empuja sin bloquear del todo las rodillas arriba"
         }
       ]
     }
@@ -220,28 +298,65 @@
       "prensa-piernas"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "sentadilla-goblet",
+      "objetos": [
+        "obj-mancuerna-izq"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          0
+        ],
+        "distancia": 3.2,
+        "azimut": 35,
+        "elevacion": 12
+      },
       "puntosClave": [
         {
-          "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 1.8,
           "angulo": {
-            "azimut": 60,
-            "elevacion": 10
+            "azimut": 30,
+            "elevacion": 15
           },
           "indicacion": "Mancuerna pegada al pecho, codos hacia abajo"
         },
         {
-          "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 1.4,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 1.8,
           "angulo": {
-            "azimut": 90,
+            "azimut": 15,
+            "elevacion": 15
+          },
+          "indicacion": "Rodillas hacia fuera, siguiendo los pies"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 75,
             "elevacion": 5
           },
           "indicacion": "Baja entre las piernas, lo más hondo que controles"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 15
+          },
+          "indicacion": "Sube con el pecho alto"
         }
       ]
     }
@@ -266,28 +381,66 @@
       "peso-muerto-rumano"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "curl-femoral-sentado",
+      "objetos": [
+        "obj-asiento",
+        "obj-rodillo"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.6,
+          0.25
+        ],
+        "distancia": 3,
+        "azimut": 70,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
-            "elevacion": 10
+            "azimut": 80,
+            "elevacion": 15
           },
           "indicacion": "Inclínate un poco hacia delante para estirar más los isquios"
         },
         {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 0,
+          "tiempoInicio": 1.4,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 1.8,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Rodilla alineada con el eje de la máquina; sube despacio"
+          "indicacion": "Rodilla alineada con el eje de la máquina"
+        },
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 10
+          },
+          "indicacion": "Estira la pierna del todo: es la parte que más hace crecer"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 100,
+            "elevacion": 15
+          },
+          "indicacion": "Flexiona hasta atrás sin despegar la cadera"
         }
       ]
     }
@@ -314,17 +467,55 @@
       "peso-muerto-rumano"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "curl-femoral-tumbado",
+      "objetos": [
+        "obj-banco",
+        "obj-rodillo"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.6,
+          -0.1
+        ],
+        "distancia": 3,
+        "azimut": 80,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 20
+          },
+          "indicacion": "Cadera pegada al banco"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 1.4,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Cadera pegada al banco, sin levantarla al subir"
+          "indicacion": "Baja despacio hasta estirar la pierna"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 25
+          },
+          "indicacion": "Sube sin levantar la cadera"
         }
       ]
     }
@@ -349,28 +540,72 @@
       "curl-femoral-sentado"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "peso-muerto-rumano",
+      "clipError": "peso-muerto-rumano-espalda",
+      "huesosError": [
+        "mixamorigSpine",
+        "mixamorigSpine1",
+        "mixamorigSpine2"
+      ],
+      "descripcionError": "Espalda redondeada: la flexión sale de la columna, no de la cadera",
+      "objetos": [
+        "obj-barra"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          0
+        ],
+        "distancia": 3.2,
+        "azimut": 70,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.4,
           "angulo": {
-            "azimut": 90,
+            "azimut": 80,
             "elevacion": 10
           },
           "indicacion": "Lleva la cadera hacia atrás, rodillas apenas flexionadas"
         },
         {
           "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "tiempoInicio": 1.4,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 15
+          },
+          "indicacion": "Espalda neutra durante todo el recorrido"
+        },
+        {
+          "hueso": "mixamorigLeftHand",
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
+            "azimut": 60,
             "elevacion": 10
           },
-          "indicacion": "Espalda neutra; baja hasta notar el estiramiento"
+          "indicacion": "La barra baja pegada a las piernas; para al notar el estiramiento"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 100,
+            "elevacion": 10
+          },
+          "indicacion": "Sube empujando la cadera hacia delante"
         }
       ]
     }
@@ -395,26 +630,53 @@
       "sentadilla-sissy"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "extension-rodilla",
+      "objetos": [
+        "obj-asiento",
+        "obj-rodillo"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.6,
+          0.2
+        ],
+        "distancia": 3,
+        "azimut": 70,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 15
+          },
+          "indicacion": "Arriba, pierna estirada sin bloquear de golpe"
+        },
+        {
+          "hueso": "mixamorigLeftLeg",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Empieza con la rodilla bien doblada: esa parte del recorrido es la que más cuenta"
+          "indicacion": "Baja hasta doblar bien la rodilla: esa parte es la que más cuenta"
         },
         {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 3.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
-            "elevacion": 10
+            "azimut": 100,
+            "elevacion": 15
           },
           "indicacion": "Respaldo algo reclinado para estirar el recto femoral"
         }
@@ -438,17 +700,54 @@
       "extension-rodilla"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "sentadilla-sissy",
+      "objetos": [
+        "obj-poste"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.7,
+          0.05
+        ],
+        "distancia": 3,
+        "azimut": 70,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 1.6,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 15
+          },
+          "indicacion": "De puntillas, agarrado a algo estable"
+        },
+        {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 0,
+          "tiempoInicio": 1.4,
           "duracion": 2,
           "zoom": 2,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 10
+          },
+          "indicacion": "Rodillas hacia delante y cadera estirada"
+        },
+        {
+          "hueso": "mixamorigHips",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2.2,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Rodillas hacia delante y cadera extendida; agárrate a algo"
+          "indicacion": "El cuerpo forma una línea de rodillas a hombros"
         }
       ]
     }
@@ -472,26 +771,53 @@
       "elevacion-talones-escalon"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "elevacion-talones-pausa",
+      "objetos": [
+        "obj-escalon",
+        "obj-almohadillas"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.7,
+          0.05
+        ],
+        "distancia": 3.2,
+        "azimut": 70,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigLeftFoot",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 1.5,
+          "zoom": 1.4,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 5
+          },
+          "indicacion": "Arriba del todo, sobre la punta del pie"
+        },
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.4,
           "angulo": {
             "azimut": 90,
-            "elevacion": 5
+            "elevacion": 0
           },
           "indicacion": "Baja el talón al máximo y para dos segundos abajo"
         },
         {
           "hueso": "mixamorigLeftLeg",
-          "tiempoInicio": 0,
+          "tiempoInicio": 3.7,
           "duracion": 2,
-          "zoom": 1.5,
+          "zoom": 1.8,
           "angulo": {
-            "azimut": 90,
-            "elevacion": 5
+            "azimut": 60,
+            "elevacion": 10
           },
           "indicacion": "Rodilla estirada para cargar el gemelo"
         }
@@ -515,17 +841,56 @@
       "elevacion-talones-pausa"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "elevacion-talones-escalon",
+      "objetos": [
+        "obj-escalon",
+        "obj-poste",
+        "obj-mancuerna-der"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.7,
+          0.05
+        ],
+        "distancia": 3.2,
+        "azimut": 70,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigLeftFoot",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 1.5,
+          "zoom": 1.4,
           "angulo": {
-            "azimut": 90,
+            "azimut": 80,
             "elevacion": 5
           },
-          "indicacion": "Punta del pie en el escalón; baja el talón y pausa"
+          "indicacion": "Punta del pie en el borde del escalón"
+        },
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.4,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 0
+          },
+          "indicacion": "Baja el talón y pausa abajo"
+        },
+        {
+          "hueso": "mixamorigLeftHand",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 10
+          },
+          "indicacion": "Agárrate solo para equilibrarte"
         }
       ]
     }
@@ -551,10 +916,26 @@
       "pushdown-triceps"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "extension-triceps-overhead",
+      "objetos": [
+        "obj-polea",
+        "obj-cable"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.1,
+          -0.1
+        ],
+        "distancia": 3.4,
+        "azimut": 75,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
@@ -565,14 +946,36 @@
         },
         {
           "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 1.4,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
+            "azimut": 100,
+            "elevacion": 15
+          },
+          "indicacion": "Baja despacio doblando solo el codo"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 80,
             "elevacion": 10
           },
-          "indicacion": "Baja hasta notar el estiramiento detrás del brazo"
+          "indicacion": "Abajo, nota el estiramiento detrás del brazo"
+        },
+        {
+          "hueso": "mixamorigLeftFoot",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 15
+          },
+          "indicacion": "Un pie adelantado para estar estable"
         }
       ]
     }
@@ -597,17 +1000,54 @@
       "press-frances"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "extension-triceps-overhead-mancuerna",
+      "objetos": [
+        "obj-mancuerna-izq"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.15,
+          0
+        ],
+        "distancia": 3.2,
+        "azimut": 60,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
-          "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigHead",
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 15
+          },
+          "indicacion": "Mancuerna arriba, agarrada con las dos manos"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 120,
+            "elevacion": 15
+          },
+          "indicacion": "Bájala detrás de la cabeza, codos hacia el techo"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.2,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Baja la mancuerna detrás de la cabeza, codos hacia el techo"
+          "indicacion": "Abdomen firme, sin arquear la espalda"
         }
       ]
     }
@@ -630,17 +1070,55 @@
       "pushdown-triceps"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "press-frances",
+      "objetos": [
+        "obj-barra",
+        "obj-banco"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          -0.25
+        ],
+        "distancia": 3,
+        "azimut": 70,
+        "elevacion": 20
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 90,
-            "elevacion": 10
+            "elevacion": 20
+          },
+          "indicacion": "Brazos casi verticales, algo inclinados hacia la cabeza"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 15
           },
           "indicacion": "Baja la barra detrás de la frente, codos quietos"
+        },
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 30,
+            "elevacion": 25
+          },
+          "indicacion": "Solo se mueve el antebrazo"
         }
       ]
     }
@@ -665,17 +1143,55 @@
       "press-frances"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "pushdown-triceps",
+      "objetos": [
+        "obj-polea",
+        "obj-cable"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.05,
+          0.15
+        ],
+        "distancia": 3.3,
+        "azimut": 70,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 10
+          },
+          "indicacion": "Codos pegados al cuerpo"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Codos pegados al cuerpo; extiende del todo"
+          "indicacion": "Sube hasta que el antebrazo pase la horizontal"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 5
+          },
+          "indicacion": "Extiende del todo abajo"
         }
       ]
     }
@@ -701,12 +1217,40 @@
       "curl-barra"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "curl-predicador",
+      "objetos": [
+        "obj-predicador",
+        "obj-mancuerna-izq",
+        "obj-mancuerna-der"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.85,
+          0.15
+        ],
+        "distancia": 3,
+        "azimut": 65,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
-          "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
+          "angulo": {
+            "azimut": 50,
+            "elevacion": 20
+          },
+          "indicacion": "Axila apoyada en el borde del banco"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
@@ -714,15 +1258,15 @@
           "indicacion": "Baja hasta casi estirar el codo: ahí está el estímulo"
         },
         {
-          "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 3.7,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 1.8,
           "angulo": {
-            "azimut": 90,
-            "elevacion": 10
+            "azimut": 70,
+            "elevacion": 15
           },
-          "indicacion": "Axila apoyada en el borde del banco"
+          "indicacion": "Sube sin despegar el brazo del apoyo"
         }
       ]
     }
@@ -747,17 +1291,56 @@
       "curl-barra"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "curl-inclinado",
+      "objetos": [
+        "obj-banco-inclinado",
+        "obj-mancuerna-izq",
+        "obj-mancuerna-der"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.85,
+          -0.05
+        ],
+        "distancia": 3.1,
+        "azimut": 70,
+        "elevacion": 12
+      },
       "puntosClave": [
         {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 15
+          },
+          "indicacion": "Respaldo a unos 60°, espalda apoyada"
+        },
+        {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
+            "azimut": 100,
             "elevacion": 10
           },
           "indicacion": "Brazos colgando por detrás del cuerpo, sin adelantar los codos"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 15
+          },
+          "indicacion": "Sube sin balancear"
         }
       ]
     }
@@ -780,17 +1363,62 @@
       "curl-inclinado"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "curl-barra",
+      "clipError": "curl-barra-balanceo",
+      "huesosError": [
+        "mixamorigSpine",
+        "mixamorigSpine1",
+        "mixamorigLeftArm",
+        "mixamorigRightArm"
+      ],
+      "descripcionError": "Balancear el tronco y adelantar los codos para subir la barra",
+      "objetos": [
+        "obj-barra"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.95,
+          0
+        ],
+        "distancia": 3.2,
+        "azimut": 60,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
-          "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 10
+          },
+          "indicacion": "Codos quietos junto al cuerpo"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 10
+          },
+          "indicacion": "Baja del todo, hasta estirar el brazo"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.4,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Codos quietos; baja del todo"
+          "indicacion": "El tronco no se mueve: nada de impulso"
         }
       ]
     }
@@ -819,28 +1447,72 @@
       "aperturas-mancuerna"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "press-banca",
+      "clipError": "press-banca-codos",
+      "huesosError": [
+        "mixamorigLeftArm",
+        "mixamorigRightArm"
+      ],
+      "descripcionError": "Codos abiertos a 90° y la barra hacia el cuello: castiga el hombro",
+      "objetos": [
+        "obj-barra",
+        "obj-banco"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          -0.25
+        ],
+        "distancia": 3,
+        "azimut": 55,
+        "elevacion": 22
+      },
       "puntosClave": [
         {
-          "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
-            "elevacion": 10
+            "azimut": 70,
+            "elevacion": 25
           },
           "indicacion": "Omóplatos juntos y pies firmes en el suelo"
         },
         {
           "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 1.4,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 0,
-            "elevacion": 10
+            "elevacion": 25
           },
-          "indicacion": "Toca el pecho a la altura del esternón, antebrazos verticales"
+          "indicacion": "Antebrazos verticales, codos a unos 45° del cuerpo"
+        },
+        {
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 20
+          },
+          "indicacion": "Toca el pecho a la altura del esternón"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 30
+          },
+          "indicacion": "Empuja la barra hacia arriba y un poco hacia la cabeza"
         }
       ]
     }
@@ -868,28 +1540,63 @@
       "press-inclinado-mancuerna"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "flexiones",
+      "objetos": [],
+      "vista": {
+        "objetivo": [
+          0,
+          0.35,
+          -0.15
+        ],
+        "distancia": 3,
+        "azimut": 75,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigHips",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.2,
           "angulo": {
             "azimut": 90,
-            "elevacion": 10
+            "elevacion": 15
           },
           "indicacion": "Cuerpo en bloque: la cadera no cae"
         },
         {
-          "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 1.4,
+          "duracion": 2,
+          "zoom": 1.6,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 15
+          },
+          "indicacion": "Manos algo más abiertas que los hombros"
+        },
+        {
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 90,
+            "azimut": 80,
             "elevacion": 10
           },
           "indicacion": "Baja hasta casi tocar el suelo con el pecho"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 20,
+            "elevacion": 25
+          },
+          "indicacion": "Codos a unos 45°, no abiertos en cruz"
         }
       ]
     }
@@ -915,17 +1622,56 @@
       "flexiones"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "press-inclinado-mancuerna",
+      "objetos": [
+        "obj-banco-inclinado",
+        "obj-mancuerna-izq",
+        "obj-mancuerna-der"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.85,
+          -0.1
+        ],
+        "distancia": 3.1,
+        "azimut": 60,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 20
+          },
+          "indicacion": "Banco a unos 30°, omóplatos juntos"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 1.8,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 20
+          },
+          "indicacion": "Baja las mancuernas hasta notar el estiramiento del pecho"
+        },
+        {
           "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 3.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 0,
-            "elevacion": 10
+            "elevacion": 25
           },
-          "indicacion": "Baja las mancuernas hasta notar el estiramiento del pecho"
+          "indicacion": "Sube juntándolas por encima del pecho"
         }
       ]
     }
@@ -950,17 +1696,56 @@
       "flexiones"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "aperturas-mancuerna",
+      "objetos": [
+        "obj-banco",
+        "obj-mancuerna-izq",
+        "obj-mancuerna-der"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          -0.25
+        ],
+        "distancia": 3.1,
+        "azimut": 40,
+        "elevacion": 30
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightForeArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 30,
+            "elevacion": 30
+          },
+          "indicacion": "Codos algo doblados y fijos"
+        },
+        {
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 2.7,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
             "azimut": 0,
-            "elevacion": 30
+            "elevacion": 35
           },
-          "indicacion": "Codos algo doblados y fijos; abre hasta notar el estiramiento"
+          "indicacion": "Abre hasta notar el estiramiento del pecho"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 25
+          },
+          "indicacion": "Cierra como si abrazaras un árbol"
         }
       ]
     }
@@ -985,28 +1770,57 @@
       "remo-polea"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "jalon-pecho",
+      "objetos": [
+        "obj-asiento",
+        "obj-polea",
+        "obj-cable",
+        "obj-barra-corta"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.1,
+          0.05
+        ],
+        "distancia": 3.5,
+        "azimut": 50,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.2,
           "angulo": {
-            "azimut": 0,
+            "azimut": 30,
             "elevacion": 10
+          },
+          "indicacion": "Tira con los codos hacia los costados, pecho alto"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 40,
+            "elevacion": 15
           },
           "indicacion": "Arriba, brazos estirados y hombros que suben"
         },
         {
           "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "tiempoInicio": 3.7,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.2,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Tira con los codos hacia los costados, pecho alto"
+          "indicacion": "Tronco algo inclinado atrás, sin balancearte"
         }
       ]
     }
@@ -1031,17 +1845,54 @@
       "remo-polea"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "dominadas",
+      "objetos": [
+        "obj-barra-fija"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.5,
+          0
+        ],
+        "distancia": 3.8,
+        "azimut": 40,
+        "elevacion": 5
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.2,
           "angulo": {
-            "azimut": 0,
-            "elevacion": 10
+            "azimut": 30,
+            "elevacion": 5
+          },
+          "indicacion": "Sube hasta que la barbilla pase la barra"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 20,
+            "elevacion": 0
           },
           "indicacion": "Empieza colgado con los brazos estirados"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 100,
+            "elevacion": 5
+          },
+          "indicacion": "Pecho hacia la barra, sin balancearte"
         }
       ]
     }
@@ -1067,17 +1918,56 @@
       "jalon-pecho"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "remo-polea",
+      "objetos": [
+        "obj-banco",
+        "obj-polea",
+        "obj-cable"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.55,
+          0.35
+        ],
+        "distancia": 3.2,
+        "azimut": 75,
+        "elevacion": 15
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.2,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Tronco quieto; tira con los codos pegados"
+          "indicacion": "Tronco quieto y recto al terminar"
+        },
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 1.4,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 20
+          },
+          "indicacion": "Tira con los codos pegados, hacia atrás"
+        },
+        {
+          "hueso": "mixamorigSpine2",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 80,
+            "elevacion": 15
+          },
+          "indicacion": "Deja que los hombros se adelanten al estirar"
         }
       ]
     }
@@ -1103,17 +1993,54 @@
       "jalon-pecho"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "remo-barra",
+      "objetos": [
+        "obj-barra"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          0.75,
+          0.05
+        ],
+        "distancia": 3.2,
+        "azimut": 70,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.4,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
-          "indicacion": "Espalda neutra e inclinada; la barra va al ombligo"
+          "indicacion": "Espalda neutra e inclinada unos 45°"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 1.4,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 10
+          },
+          "indicacion": "La barra va al ombligo"
+        },
+        {
+          "hueso": "mixamorigRightArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": 60,
+            "elevacion": 20
+          },
+          "indicacion": "Abajo, brazos estirados sin perder la postura"
         }
       ]
     }
@@ -1138,17 +2065,55 @@
       "press-militar"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "elevacion-lateral-polea",
+      "objetos": [
+        "obj-polea",
+        "obj-cable"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.05,
+          0
+        ],
+        "distancia": 3.3,
+        "azimut": 15,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 0,
+            "azimut": 10,
             "elevacion": 10
           },
-          "indicacion": "Polea por delante o por detrás del cuerpo; sube hasta la altura del hombro"
+          "indicacion": "Sube hasta la altura del hombro, no más"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 20,
+            "elevacion": 5
+          },
+          "indicacion": "Abajo, la mano cruza por delante: ahí el deltoides está estirado"
+        },
+        {
+          "hueso": "mixamorigLeftHand",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.2,
+          "angulo": {
+            "azimut": -30,
+            "elevacion": 10
+          },
+          "indicacion": "Agárrate a la polea y no inclines el tronco"
         }
       ]
     }
@@ -1173,17 +2138,55 @@
       "press-militar"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "elevacion-lateral-mancuerna",
+      "objetos": [
+        "obj-mancuerna-izq",
+        "obj-mancuerna-der"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.05,
+          0
+        ],
+        "distancia": 3.3,
+        "azimut": 20,
+        "elevacion": 10
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigRightArm",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
           "zoom": 2,
           "angulo": {
-            "azimut": 0,
+            "azimut": 10,
             "elevacion": 10
           },
-          "indicacion": "Sube con el codo por delante de la mano, sin impulso"
+          "indicacion": "Sube con el codo por delante de la mano"
+        },
+        {
+          "hueso": "mixamorigRightHand",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 30,
+            "elevacion": 5
+          },
+          "indicacion": "Baja controlando, sin dejarla caer"
+        },
+        {
+          "hueso": "mixamorigSpine1",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2.4,
+          "angulo": {
+            "azimut": 90,
+            "elevacion": 10
+          },
+          "indicacion": "Sin impulso: el tronco no se mueve"
         }
       ]
     }
@@ -1207,17 +2210,54 @@
       "elevacion-lateral-polea"
     ],
     "tecnica": {
+      "modelo": "modelos/maniqui.glb",
+      "clipCorrecto": "press-militar",
+      "objetos": [
+        "obj-barra"
+      ],
+      "vista": {
+        "objetivo": [
+          0,
+          1.2,
+          0
+        ],
+        "distancia": 3.4,
+        "azimut": 50,
+        "elevacion": 8
+      },
       "puntosClave": [
         {
           "hueso": "mixamorigSpine1",
-          "tiempoInicio": 0,
+          "tiempoInicio": 0.2,
           "duracion": 2,
-          "zoom": 2,
+          "zoom": 2.4,
           "angulo": {
             "azimut": 90,
             "elevacion": 10
           },
           "indicacion": "Glúteos apretados, sin arquear la zona lumbar"
+        },
+        {
+          "hueso": "mixamorigRightForeArm",
+          "tiempoInicio": 2.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 30,
+            "elevacion": 10
+          },
+          "indicacion": "Abajo, la barra sobre la clavícula y antebrazos verticales"
+        },
+        {
+          "hueso": "mixamorigHead",
+          "tiempoInicio": 3.7,
+          "duracion": 2,
+          "zoom": 2,
+          "angulo": {
+            "azimut": 70,
+            "elevacion": 15
+          },
+          "indicacion": "Aparta la cabeza y sube la barra en línea recta"
         }
       ]
     }

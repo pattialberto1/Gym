@@ -59,25 +59,33 @@ function Visor({ ejercicio, alIndicar }: { ejercicio: Ejercicio; alIndicar: (i: 
   return (
     <div class="visor" ref={contenedor}>
       {estado === "cargando" && <div class="cargando">Cargando figura…</div>}
-      {indicacion && (
-        <div class="indicacion" aria-live="polite">
-          <span class="paso-guia">
-            Punto {indicacion.i + 1} de {total}
-          </span>
-          {indicacion.texto}
-        </div>
-      )}
-      {comparacion === "error" && !indicacion && ejercicio.tecnica.descripcionError && (
-        <div class="indicacion" style={{ background: "rgb(120 20 24 / 0.8)" }}>
+      {comparacion === "error" && ejercicio.tecnica.descripcionError ? (
+        <div class="indicacion error">
           <span class="paso-guia">Error común</span>
           {ejercicio.tecnica.descripcionError}
         </div>
+      ) : (
+        indicacion && (
+          <div class="indicacion" aria-live="polite">
+            <span class="paso-guia">
+              <span>
+                Punto {indicacion.i + 1} de {total}
+              </span>
+              <span class="puntos-guia" aria-hidden="true">
+                {Array.from({ length: total }, (_, i) => (
+                  <i key={i} class={i <= indicacion.i ? "hecho" : ""} />
+                ))}
+              </span>
+            </span>
+            {indicacion.texto}
+          </div>
+        )
       )}
       {estado === "listo" && (
         <div class="controles">
           {modo === "libre" ? (
-            <button class="boton pequeno" onClick={() => visor.current?.iniciarGuia()}>
-              Ver guía
+            <button class="boton pequeno guia" onClick={() => visor.current?.iniciarGuia()}>
+              ▶ Ver guía
             </button>
           ) : (
             <span />
@@ -115,13 +123,13 @@ export function Ficha({ id }: { id: string }) {
   return (
     <div class="pantalla">
       <Cabecera titulo={ejercicio.nombre} atras="/biblioteca" />
-      <p class="secundario" style={{ marginTop: "-8px" }}>
-        {MUSCULOS[ejercicio.musculoPrincipal]}
-        {ejercicio.musculosSecundarios.length > 0 &&
-          ` · también ${ejercicio.musculosSecundarios.map((m) => MUSCULOS[m]?.toLowerCase() ?? m).join(", ")}`}
-        {" · "}
-        {EQUIPO[ejercicio.equipo]}
-      </p>
+      <div class="ficha-sub">
+        <span>{MUSCULOS[ejercicio.musculoPrincipal]}</span>
+        {ejercicio.musculosSecundarios.map((m) => (
+          <span key={m}>+ {MUSCULOS[m] ?? m}</span>
+        ))}
+        <span>{EQUIPO[ejercicio.equipo]}</span>
+      </div>
 
       {conModelo && <Visor ejercicio={ejercicio} alIndicar={setActivo} />}
 
@@ -134,7 +142,6 @@ export function Ficha({ id }: { id: string }) {
             </li>
           ))}
         </ol>
-        {!conModelo && <p class="terciario">La figura 3D de este ejercicio llegará más adelante.</p>}
       </section>
 
       <section class="tarjeta">

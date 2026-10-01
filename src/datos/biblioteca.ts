@@ -85,82 +85,71 @@ function ej(ejercicioId: string, series: number, repsMin: number, repsMax: numbe
   return { ejercicioId, series, repsMin, repsMax, descansoSeg };
 }
 
-export const PLANTILLAS: Rutina[] = [
+/**
+ * Rutina de cuerpo completo, la misma todos los días de entreno (lunes, miércoles y viernes).
+ * - Frecuencia: cada músculo 3 veces por semana con 48 h de descanso entre sesiones
+ *   (≥2 veces por semana supera a 1: Schoenfeld et al., 2016).
+ * - Volumen: 3 series × 3 días = 9 series directas por músculo y semana, más el trabajo
+ *   indirecto de los multiarticulares (≈10 o más, donde la meta-análisis ve mejores resultados:
+ *   Schoenfeld et al., 2017).
+ * - Descansos: 3 min en los básicos, 2 min en los de aislamiento (Schoenfeld et al., 2016).
+ */
+export const PLANTILLA_CUERPO_COMPLETO: Rutina = {
+  id: "plantilla-cuerpo-completo",
+  nombre: "Cuerpo completo",
+  diasSemana: [0, 2, 4],
+  dias: [
+    {
+      nombre: "Cuerpo completo",
+      ejercicios: [
+        ej("sentadilla-profunda", 3, 6, 10, 180),
+        ej("press-banca", 3, 6, 10, 180),
+        ej("jalon-pecho", 3, 8, 12, 150),
+        ej("curl-femoral-sentado", 3, 8, 12, 120),
+        ej("extension-triceps-overhead", 3, 10, 15, 120),
+        ej("curl-predicador", 3, 10, 15, 120),
+        ej("elevacion-lateral-polea", 3, 12, 20, 90),
+        ej("elevacion-talones-pausa", 3, 10, 15, 90),
+      ],
+    },
+  ],
+};
+
+export const PLANTILLAS: Rutina[] = [PLANTILLA_CUERPO_COMPLETO];
+
+/** Nombres de las plantillas de versiones anteriores (se sustituyen por la nueva). */
+export const PLANTILLAS_ANTIGUAS = ["Torso / Pierna", "Empuje / Tirón / Pierna"];
+
+/** Evidencia que justifica la rutina, para mostrarla en la app. */
+export const EVIDENCIA_RUTINA = [
   {
-    id: "plantilla-torso-pierna",
-    nombre: "Torso / Pierna",
-    dias: [
-      {
-        nombre: "Torso A",
-        ejercicios: [
-          ej("press-banca", 3, 6, 10, 150),
-          ej("jalon-pecho", 3, 8, 12, 120),
-          ej("extension-triceps-overhead", 3, 10, 15, 90),
-          ej("curl-predicador", 3, 10, 15, 90),
-          ej("elevacion-lateral-polea", 3, 12, 20, 60),
-        ],
-      },
-      {
-        nombre: "Pierna A",
-        ejercicios: [
-          ej("sentadilla-profunda", 3, 6, 10, 180),
-          ej("curl-femoral-sentado", 3, 8, 12, 120),
-          ej("extension-rodilla", 3, 10, 15, 90),
-          ej("elevacion-talones-pausa", 3, 10, 15, 60),
-        ],
-      },
-      {
-        nombre: "Torso B",
-        ejercicios: [
-          ej("flexiones", 3, 8, 15, 90),
-          ej("remo-polea", 3, 8, 12, 120),
-          ej("extension-triceps-overhead", 3, 10, 15, 90),
-          ej("curl-predicador", 3, 10, 15, 90),
-          ej("elevacion-lateral-polea", 3, 12, 20, 60),
-        ],
-      },
-      {
-        nombre: "Pierna B",
-        ejercicios: [
-          ej("sentadilla-profunda", 3, 8, 12, 180),
-          ej("hip-thrust", 3, 8, 12, 120),
-          ej("curl-femoral-sentado", 3, 10, 15, 90),
-          ej("elevacion-talones-pausa", 3, 10, 15, 60),
-        ],
-      },
+    titulo: "3 días por semana, cuerpo completo",
+    texto: "Entrenar cada músculo al menos 2 veces por semana dio más crecimiento que 1 vez. Con el mismo volumen total, repartirlo en más días no suma por sí mismo, pero facilita hacer buenas series sin acumular fatiga.",
+    refs: [
+      "Schoenfeld BJ, Ogborn D, Krieger JW. Effects of Resistance Training Frequency on Measures of Muscle Hypertrophy: A Systematic Review and Meta-Analysis. Sports Med. 2016;46(11):1689-1697.",
+      "Schoenfeld BJ, Grgic J, Krieger J. How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis. J Sports Sci. 2019;37(11):1286-1295.",
     ],
   },
   {
-    id: "plantilla-empuje-tiron-pierna",
-    nombre: "Empuje / Tirón / Pierna",
-    dias: [
-      {
-        nombre: "Empuje",
-        ejercicios: [
-          ej("press-banca", 3, 6, 10, 150),
-          ej("press-inclinado-mancuerna", 3, 8, 12, 120),
-          ej("extension-triceps-overhead", 3, 10, 15, 90),
-          ej("elevacion-lateral-polea", 3, 12, 20, 60),
-        ],
-      },
-      {
-        nombre: "Tirón",
-        ejercicios: [
-          ej("jalon-pecho", 3, 8, 12, 120),
-          ej("remo-polea", 3, 8, 12, 120),
-          ej("curl-predicador", 3, 10, 15, 90),
-          ej("curl-femoral-sentado", 3, 8, 12, 120),
-        ],
-      },
-      {
-        nombre: "Pierna",
-        ejercicios: [
-          ej("sentadilla-profunda", 3, 6, 10, 180),
-          ej("curl-femoral-sentado", 3, 8, 12, 120),
-          ej("extension-rodilla", 3, 10, 15, 90),
-          ej("elevacion-talones-pausa", 3, 10, 15, 60),
-        ],
-      },
+    titulo: "≈10 series por músculo y semana",
+    texto: "Más series semanales se asocian a más crecimiento, con buenos resultados a partir de unas 10 por músculo. Aquí son 9 directas más las indirectas de los ejercicios básicos (cuentan como media serie).",
+    refs: [
+      "Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis. J Sports Sci. 2017;35(11):1073-1082.",
+      "Pelland JC, Remmert JF, Robinson ZP, Hinson S, Zourdos MC. The Resistance Training Dose-Response: Meta-Regressions Exploring the Effects of Weekly Volume and Frequency on Muscle Hypertrophy and Strength Gain. Sports Med. 2026;56(2):481-505.",
+    ],
+  },
+  {
+    titulo: "Descansos largos entre series",
+    texto: "Descansar 3 minutos dio más fuerza y más grosor muscular que 1 minuto. Por eso 3 min en los básicos y 2 min en los de aislamiento; entre sesiones, 48 h para el mismo músculo.",
+    refs: [
+      "Schoenfeld BJ, Pope ZK, Benik FM, et al. Longer Interset Rest Periods Enhance Muscle Strength and Hypertrophy in Resistance-Trained Men. J Strength Cond Res. 2016;30(7):1805-1812.",
+    ],
+  },
+  {
+    titulo: "Cerca del fallo, sin llegar siempre",
+    texto: "Llegar al fallo total apenas aporta frente a quedarse cerca. Acaba cada serie con 1–3 repeticiones en reserva; si marcas «fácil», la app sube el peso más rápido.",
+    refs: [
+      "Refalo MC, Helms ER, Trexler ET, Hamilton DL, Fyfe JJ. Influence of Resistance Training Proximity-to-Failure on Skeletal Muscle Hypertrophy: A Systematic Review with Meta-analysis. Sports Med. 2023;53(3):649-665.",
     ],
   },
 ];

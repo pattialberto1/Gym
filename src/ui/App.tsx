@@ -10,7 +10,7 @@ import { EditarRutina, Rutinas } from "./pantallas/Rutinas";
 
 const SECCIONES = [
   { ruta: "", texto: "Hoy", icono: "hoy" },
-  { ruta: "rutinas", texto: "Rutinas", icono: "rutinas" },
+  { ruta: "rutinas", texto: "Rutina", icono: "rutinas" },
   { ruta: "biblioteca", texto: "Ejercicios", icono: "biblioteca" },
   { ruta: "historial", texto: "Historial", icono: "historial" },
   { ruta: "ajustes", texto: "Ajustes", icono: "ajustes" },

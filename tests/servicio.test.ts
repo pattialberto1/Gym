@@ -141,3 +141,18 @@ describe("flujo completo de entreno", () => {
     expect(descarga.plan[0].series.filter((x) => !x.esCalentamiento)[0].pesoKg).toBe(30);
   });
 });
+
+describe("datos iniciales", () => {
+  it("sustituye las plantillas antiguas por la rutina de cuerpo completo", async () => {
+    repo.usarBaseDatos(`migracion-${Math.random()}`);
+    await repo.guardarRutina({ id: "vieja", nombre: "Torso / Pierna", dias: [] });
+    await repo.guardarRutina({ id: "mia", nombre: "Mi rutina", dias: [] });
+    await servicio.asegurarDatosIniciales();
+    const nombres = (await repo.listarRutinas()).map((r) => r.nombre).sort();
+    expect(nombres).toEqual(["Cuerpo completo", "Mi rutina"]);
+    expect((await servicio.rutinaActiva())?.nombre).toBe("Cuerpo completo");
+    // Idempotente
+    await servicio.asegurarDatosIniciales();
+    expect(await repo.listarRutinas()).toHaveLength(2);
+  });
+});

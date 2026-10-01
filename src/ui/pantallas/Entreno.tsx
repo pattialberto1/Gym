@@ -329,9 +329,15 @@ export function Entreno({ hechaDesdeNotificacion }: { hechaDesdeNotificacion: bo
   const algunaTrabajoHecha = actual.series.some((x) => !x.esCalentamiento && serieHecha(x));
   const unidadPeso = ejercicio.equipo === "peso-corporal" ? "kg de lastre" : "kg";
 
+  const totalSeries = plan.reduce((t, p) => t + p.series.length, 0);
+  const hechasSeries = plan.reduce((t, p) => t + p.series.filter(serieHecha).length, 0);
+
   return (
     <div class="entreno">
       <Toast aviso={aviso} alCerrar={() => setAviso(null)} />
+      <div class="progreso-entreno" role="progressbar" aria-label="Progreso del entreno" aria-valuenow={hechasSeries} aria-valuemax={totalSeries}>
+        <span style={{ width: `${(hechasSeries / Math.max(1, totalSeries)) * 100}%` }} />
+      </div>
 
       <div class="entreno-barra">
         <button class="atras" aria-label="Salir (el entreno queda guardado)" onClick={() => ir("/")}>
@@ -380,6 +386,7 @@ export function Entreno({ hechaDesdeNotificacion }: { hechaDesdeNotificacion: bo
 
       {descanso && (
         <div class={`descanso ${restante <= 0 ? "listo" : ""}`} role="timer" aria-live="off">
+          <span class="barra-tiempo" style={{ width: `${Math.max(0, Math.min(1, restante / descanso.total)) * 100}%` }} />
           <div class="tiempo">
             <small>{restante <= 0 ? "Descanso terminado" : "Descanso"}</small>
             {restante <= 0 ? "¡Listo!" : mmss(restante)}

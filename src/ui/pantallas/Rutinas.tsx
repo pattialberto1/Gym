@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import { PLANTILLAS, obtenerEjercicio } from "../../datos/biblioteca";
+import { EVIDENCIA_RUTINA, MUSCULOS, PLANTILLAS, obtenerEjercicio } from "../../datos/biblioteca";
+import { INICIAL_DIA, NOMBRES_DIA, diasDeEntreno, duracionEstimada, seriesSemanales } from "../../logica/semana";
 import * as repo from "../../datos/repositorio";
 import type { EjercicioDia, Rutina } from "../../datos/tipos";
 import * as servicio from "../../logica/servicio";
@@ -30,48 +31,114 @@ export function Rutinas() {
     await cargar();
   }
 
+  const enUso = rutinas.find((r) => r.id === activa);
+  const otras = rutinas.filter((r) => r.id !== activa);
+
   return (
     <div class="pantalla">
-      <Cabecera titulo="Rutinas" />
+      <Cabecera titulo="Rutina" />
+      {enUso && <ResumenRutina rutina={enUso} />}
+
+      <section class="tarjeta">
+        <h2>Por qué esta rutina</h2>
+        <p class="secundario">La misma sesión de cuerpo completo cada día de entreno, con lo que dice la evidencia sobre crecimiento muscular:</p>
+        {EVIDENCIA_RUTINA.map((x) => (
+          <details key={x.titulo} class="evidencia">
+            <summary>{x.titulo}</summary>
+            <p class="secundario">{x.texto}</p>
+            <ul class="referencias">
+              {x.refs.map((r) => (
+                <li key={r}>{r}</li>
+              ))}
+            </ul>
+          </details>
+        ))}
+      </section>
+
+      {otras.length > 0 && <h3 class="seccion">Otras rutinas</h3>}
       <ul class="lista">
-        {rutinas.map((r) => (
+        {otras.map((r) => (
           <li key={r.id}>
             <div class="fila">
               <a class="crece" href={`#/rutina/${r.id}`} style={{ textDecoration: "none" }}>
-                <div>{r.nombre}</div>
-                <div class="terciario">{r.dias.map((d) => d.nombre).join(" · ") || "Sin días"}</div>
+                <div class="nombre">{r.nombre}</div>
+                <div class="terciario">{textoDias(r)}</div>
               </a>
-              {r.id === activa ? (
-                <span class="insignia fuerte">En uso</span>
-              ) : (
-                <button
-                  class="boton pequeno"
-                  onClick={async () => {
-                    await servicio.activarRutina(r.id);
-                    setActiva(r.id);
-                  }}
-                >
-                  Usar
-                </button>
-              )}
+              <button
+                class="boton pequeno"
+                onClick={async () => {
+                  await servicio.activarRutina(r.id);
+                  setActiva(r.id);
+                }}
+              >
+                Usar
+              </button>
             </div>
           </li>
         ))}
       </ul>
-      <button class="boton principal ancho" onClick={nueva}>
-        <Icono nombre="mas" /> Nueva rutina
-      </button>
-      <h3 class="seccion">Plantillas</h3>
-      <p class="secundario">Montadas con los ejercicios de mejor evidencia. Se añaden como una rutina más que puedes editar.</p>
-      {PLANTILLAS.map((p) => (
-        <button key={p.id} class="fila" onClick={() => desdePlantilla(p)}>
-          <div class="crece">
-            <div>{p.nombre}</div>
-            <div class="terciario">{p.dias.map((d) => d.nombre).join(" · ")}</div>
-          </div>
-          <Icono nombre="mas" />
+      <div class="fila-botones" style={{ marginTop: "12px" }}>
+        <button class="boton" onClick={nueva}>
+          <Icono nombre="mas" /> Nueva rutina
         </button>
-      ))}
+        {!rutinas.some((r) => r.nombre === PLANTILLAS[0].nombre) && (
+          <button class="boton" onClick={() => desdePlantilla(PLANTILLAS[0])}>
+            Rutina recomendada
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function textoDias(r: Rutina): string {
+  const dias = diasDeEntreno(r);
+  return dias.length === 7 ? "Cualquier día" : dias.map((d) => NOMBRES_DIA[d]).join(", ");
+}
+
+function ResumenRutina({ rutina }: { rutina: Rutina }) {
+  const dias = diasDeEntreno(rutina);
+  const ejercicios = rutina.dias[0]?.ejercicios ?? [];
+  const porSemana = rutina.dias.length === 1 ? dias.length : 1;
+  const series = seriesSemanales(
+    rutina.dias.flatMap((d) => d.ejercicios),
+    porSemana,
+    (id) => obtenerEjercicio(id)?.musculoPrincipal,
+  );
+  return (
+    <div class="hero">
+      <span class="etiqueta">En uso</span>
+      <h1>{rutina.nombre}</h1>
+      <div class="stats">
+        <div>
+          <span class="cifra">{dias.length === 7 ? "—" : dias.length}</span>
+          <span class="terciario">días/semana</span>
+        </div>
+        <div>
+          <span class="cifra">{ejercicios.length}</span>
+          <span class="terciario">ejercicios</span>
+        </div>
+        <div>
+          <span class="cifra">≈{duracionEstimada(ejercicios)}</span>
+          <span class="terciario">min/sesión</span>
+        </div>
+      </div>
+      <div class="dias-semana" aria-label="Días de entreno" style={{ marginBottom: "14px" }}>
+        {INICIAL_DIA.map((d, i) => (
+          <button key={i} disabled aria-pressed={dias.includes(i)} style={{ opacity: 1 }} aria-label={NOMBRES_DIA[i]}>
+            {d}
+          </button>
+        ))}
+      </div>
+      {series.size > 0 && (
+        <p class="terciario" style={{ margin: "0 0 14px" }}>
+          Series por semana:{" "}
+          {[...series.entries()].map(([m, n]) => `${MUSCULOS[m] ?? m} ${n}`).join(" · ")}
+        </p>
+      )}
+      <a class="boton ancho" href={`#/rutina/${rutina.id}`}>
+        Editar rutina
+      </a>
     </div>
   );
 }
@@ -134,6 +201,28 @@ export function EditarRutina({ id }: { id: string }) {
         value={rutina.nombre}
         onChange={(e) => cambiar({ ...rutina, nombre: (e.target as HTMLInputElement).value || "Mi rutina" })}
       />
+
+      <p class="secundario" style={{ margin: "16px 0 8px" }}>
+        Días de entreno <span class="terciario">(deja al menos un día de descanso entre sesiones)</span>
+      </p>
+      <div class="dias-semana" role="group" aria-label="Días de entreno">
+        {INICIAL_DIA.map((d, i) => {
+          const dias = rutina.diasSemana ?? [];
+          const activo = dias.includes(i);
+          return (
+            <button
+              key={i}
+              aria-pressed={activo}
+              aria-label={NOMBRES_DIA[i]}
+              onClick={() =>
+                cambiar({ ...rutina, diasSemana: activo ? dias.filter((x) => x !== i) : [...dias, i].sort((a, b) => a - b) })
+              }
+            >
+              {d}
+            </button>
+          );
+        })}
+      </div>
 
       {rutina.dias.map((dia, i) => (
         <section key={i} class="tarjeta" style={{ marginTop: "16px" }}>

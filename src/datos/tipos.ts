@@ -29,6 +29,10 @@ export interface FichaTecnica {
   huesosError?: string[];
   /** Descripción breve del error común, se muestra al activar el modo error. */
   descripcionError?: string;
+  /** Objetos del modelo que se muestran (barra, banco, polea…). */
+  objetos?: string[];
+  /** Vista general de la cámara. */
+  vista?: { objetivo: [number, number, number]; distancia: number; azimut: number; elevacion: number };
   puntosClave: PuntoClave[];
 }
 
@@ -44,6 +48,8 @@ export interface PuntoClave {
 export interface Rutina {
   id: string;
   nombre: string;
+  /** Días de la semana en que se entrena (0 = lunes … 6 = domingo). */
+  diasSemana?: number[];
   dias: DiaRutina[];
 }
 
